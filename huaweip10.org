@@ -1,0 +1,178 @@
+#+TITLE:Huawei P10 Notes, information for custom ROM dev
+#+AUTHOR: Kalman Kiss <kisskamizeg@gmail.com>
+
+This file contains my notes researching the posibilities to produce a "fresh"
+custom ROM for the Huawei P10 device. The ideal target would be AOSP/LineageOS
++ GApps (not interested in EMUI). :)
+
+* Huawei P10 Specs
+
+- Announced :: 2017, February
+- Models :: VTR-L29, VTR-AL00, VTR-TL00, VTR-L09
+
+- System chip :: HiSilicon Kirin 960
+- Processor :: Octa-core, 2400 MHz, ARM Cortex-A73 and ARM Cortex-A53, 64-bit
+  - 4x Cortex-A73@2.4 GHz + 4x Cortex-A53@1.8 GHz
+- GPU :: Mali-G71 MP8
+- Memory :: LPDDR4
+  - Internal: 32GB 4GB RAM, 64GB 4GB RAM
+    eMMC 5.1, UFS 2.0, or UFS 2.1
+  - Card slot: microSDXC (uses shared SIM slot)
+- Modem :: LTE Cat 12/13 600 Mbit/s or 150 Mbit/s
+- Coprocessor :: i6 sensing coprocessor
+- ISP :: Improved dual 14-bit ISP 1000 Mp/s with standalone digital signal processor (DSP)
+- Audio :: Hi6403
+- Video :: 4K video decoder@H.265
+- Voice :: Yueyin 2.0, including HD voice+, Voice over LTE (VoLTE), and Voice over WiFi (VoWiFi)
+
+- Security :: inSE 1.0
+
+- Camera :: Dual 12 MP, f/2.2, 28mm (wide), PDAF, Laser AF, OIS
+    20 MP B/W, f/1.8, 27mm (wide), 1/2.7"
+    - Features: Leica optics, dual-LED dual-tone flash, HDR, panorama
+    - Video: 4K@30fps, 1080p@60fps
+
+- Communicaiton ::
+  - WLAN: Wi-Fi 802.11 a/b/g/n/ac, dual-band, DLNA, Wi-Fi Direct
+  - Bluetooth: 4.2, A2DP, LE, aptX
+  - Positioning: GPS, GLONASS, BDS, GALILEO
+  - NFC: Yes
+
+- Display :: IPS-NEO LCD
+  - Size: 5.1 inches, 71.7 cm2 (~71.2% screen-to-body ratio)
+  - Resolution: 1080 x 1920 pixels, 16:9 ratio (~432 ppi density)
+
+- OS :: Android (9.0 Pie, 8.0 Oreo, 7.0 Nougat), Huawei Emotion UI
+
+The Cortex-A73 is also found in a wide range of mid-range chipsets such as the Samsung Exynos 7885, MediaTek Helio P series, and other HiSilicon Kirin models.
+
+* Similar phones
+
+*With the same system chip:*
+- Huawei Honor 8 Pro
+- Huawei Honor 9
+- Huawei Honor V9
+- Huawei Mate 9
+- Huawei Mate 9 Porsche Design
+- Huawei Mate 9 Pro
+- Huawei P10
+- Huawei P10 Plus
+
+But not the same gpu:
+- Huawei nova 2s - Mali T830 MP2
+
+* ROM/OS Versions
+
+** GSI
+
+Devices upgraded to Android 9 from an earlier version might or might not support GSIs.
+
+Check support, downloads, how to install:
+https://developer.android.com/topic/generic-system-image
+
+*** Check
+
+Treble fully supported!
+
+#+BEGIN_SRC
+[vendor]
+additional.namespaces = system,vndk
+
+namespace.default.isolated = true
+namespace.default.visible = true
+#+END_SRC
+
+cpu abi: arm64-v8a
+
+Current kernel:
+#+BEGIN_SRC
+Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
+#+END_SRC
+
+* Workplan
+
+** TESTED Check treble compatibility
+** WIP Unlock Bootloader on device
+   - there is no reason to continue if the brute force method isn't working
+
+** Get stock firmware for recovery
+** Find, develop a good working TWRP
+** Check old AOSP?, LineageOS? versions for support
+   - OpenKirin was closed source :(
+   - seeing some old (LineageOS based) repos on github
+   - fresh kernel announcement on XDA
+
+     
+* Links
+
+- keywords: Huawei, hisilicon, kirin 960, victoria, hi3660, vtr
+
+- https://www.gsmarena.com/huawei_p10-8514.php
+
+- https://web.archive.org/web/20211002165337/https://openkirin.net/devices/
+
+- https://source.android.com/docs/setup/build/building-kernels
+
+- https://github.com/Coconutat/android_kernel_huawei_vtr_emui9_KernelSU
+
+- https://github.com/THMonster?tab=repositories&q=hua&type=&language=&sort=
+- https://github.com/THMonster?tab=repositories&q=hua&type=&language=&sort=
+
+- https://xdaforums.com/t/rom-discontinued-unofficial-lineageos-16-0-mate-9-2018-11-11.3835072/
+
+** Telegram
+
+*** OpenKirin project telegram chanels
+- https://t.me/OpenKirin
+- https://t.me/OpenKirinSupport
+
+** Unlock
+
+- https://xdaforums.com/t/huawei-nova-2-plus-bootloader-unlock-solution.4386383/#post-86234203
+
+- https://xdaforums.com/t/here-is-how-to-unlock-the-bootloader.4141705/
+
+- https://github.com/mashed-potatoes/PotatoNV
+
+** Firmware
+
+- http://huawei-firmware.com/phone-list/huawei-p10/vtr-l29 - nothing is downloadable? :(
+
+** Hardware
+
+- https://en.wikipedia.org/wiki/ARM_Cortex-A73
+- https://en.wikipedia.org/wiki/ARM_Cortex-A53
+
+- https://www.96boards.org/product/hikey960/
+  "Initial software support for the board is provided in the AOSP source tree
+  based on the Android Common Kernel using the Linux 4.4 kernel release. Linaro
+  and Huawei are also working on the Linux 4.9 based Android Common kernel and
+  maintaining support for the Kirin 960 SoC in the mainline kernel.org tree,
+  allowing for the availability of multiple Linux distributions for this board in the future."
+
+- hikey kernel :: https://cs.android.com/android/platform/superproject/main/+/main:device/linaro/
+
+** Apps, software
+
+- old: https://xdaforums.com/t/guide-complete-android-rom-development-and-essential-tutorials-by-nero-young.1661770/
+
+*** TWRP
+
+- TWRP - https://twrp.me/Devices/
+  - *No compatible device atm!*
+  - https://twrp.me/faq/howtocompiletwrp.html
+  - https://xdaforums.com/t/guide-noob-friendly-how-to-compile-twrp-from-source-step-by-step.3404024/
+  - https://xdaforums.com/t/dev-how-to-compile-twrp-touch-recovery.1943625/
+
+- Treble check: OK
+
+- HWOTA - rebrand, update, unbrick
+  https://www.gizdev.com/huawei-hwota-tool-for-huawei-devices/
+- How to install TWRP
+  https://huaweiflash.com/how-to-install-twrp-recovery-on-huawei-p10/
+
+
+** Other
+
+- Example project supporting "very old" (Samsung A10/20/30/40) hardware: https://eurekadevelopment.github.io/
+- https://e.foundation/e-os/
