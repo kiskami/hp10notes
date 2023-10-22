@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-10-14 Szo 13:55 -->
+<!-- 2023-10-22 V 12:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Huawei P10 Notes, information for custom ROM dev</title>
@@ -201,42 +201,37 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1679618">1. Huawei P10 Specs</a></li>
-<li><a href="#org66a7325">2. Similar phones</a></li>
-<li><a href="#orgbd462de">3. ROM/OS Versions</a>
+<li><a href="#org00937f7">1. Huawei P10 Specs</a></li>
+<li><a href="#org9b72aa0">2. Similar phones</a></li>
+<li><a href="#org0b3df1b">3. ROM/OS Versions</a>
 <ul>
-<li><a href="#orgd01ea0d">3.1. GSI</a>
+<li><a href="#orge4b80a9">3.1. GSI</a>
 <ul>
-<li><a href="#org9a49826">3.1.1. Check</a></li>
+<li><a href="#orga30bc65">3.1.1. Check</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga2ab6a5">4. Workplan</a>
+<li><a href="#org5fae270">4. Workplan</a></li>
+<li><a href="#org38b5791">5. Links</a>
 <ul>
-<li><a href="#org680a8f0">4.1. <span class="done TESTED">TESTED</span> Check treble compatibility</a></li>
-<li><a href="#org014cf79">4.2. <span class="todo WIP">WIP</span> Unlock Bootloader on device</a></li>
-<li><a href="#org4899ea9">4.3. Get stock firmware for recovery</a></li>
-<li><a href="#org6c1412f">4.4. Find, develop a good working TWRP</a></li>
-<li><a href="#org26feb7f">4.5. Check old AOSP?, LineageOS? versions for support</a></li>
+<li><a href="#org5518f08">5.1. Telegram</a>
+<ul>
+<li><a href="#org7263793">5.1.1. TWRP</a></li>
+<li><a href="#orgfc99611">5.1.2. OpenKirin project telegram chanels</a></li>
 </ul>
 </li>
-<li><a href="#org18af19c">5. Links</a>
+<li><a href="#orgf611ea4">5.2. Unlock</a></li>
+<li><a href="#org0ba1485">5.3. Firmware</a></li>
+<li><a href="#orgee9e698">5.4. Hardware</a></li>
+<li><a href="#orgb4bc307">5.5. Apps, software</a>
 <ul>
-<li><a href="#orgd5bf60e">5.1. Telegram</a>
-<ul>
-<li><a href="#orgdb95903">5.1.1. OpenKirin project telegram chanels</a></li>
+<li><a href="#orge9ec1b0">5.5.1. Interesting github repos</a></li>
+<li><a href="#org8031a57">5.5.2. Recovery, TWRP</a></li>
+<li><a href="#org46fdccf">5.5.3. Custom rom install</a></li>
 </ul>
 </li>
-<li><a href="#orgccdad4d">5.2. Unlock</a></li>
-<li><a href="#orgadf0f16">5.3. Firmware</a></li>
-<li><a href="#org4e2dacd">5.4. Hardware</a></li>
-<li><a href="#orgcaac7a5">5.5. Apps, software</a>
-<ul>
-<li><a href="#org2e87ce8">5.5.1. TWRP</a></li>
-</ul>
-</li>
-<li><a href="#org8d30353">5.6. Other</a></li>
+<li><a href="#orgfb422a2">5.6. Other</a></li>
 </ul>
 </li>
 </ul>
@@ -250,8 +245,8 @@ custom ROM for the Huawei P10 device. The ideal target would be AOSP/LineageOS
 <li>GApps (not interested in EMUI). :)</li>
 </ul>
 
-<div id="outline-container-org1679618" class="outline-2">
-<h2 id="org1679618"><span class="section-number-2">1.</span> Huawei P10 Specs</h2>
+<div id="outline-container-org00937f7" class="outline-2">
+<h2 id="org00937f7"><span class="section-number-2">1.</span> Huawei P10 Specs</h2>
 <div class="outline-text-2" id="text-1">
 <dl class="org-dl">
 <dt>Announced</dt><dd>2017, February</dd>
@@ -307,8 +302,8 @@ The Cortex-A73 is also found in a wide range of mid-range chipsets such as the S
 </div>
 </div>
 
-<div id="outline-container-org66a7325" class="outline-2">
-<h2 id="org66a7325"><span class="section-number-2">2.</span> Similar phones</h2>
+<div id="outline-container-org9b72aa0" class="outline-2">
+<h2 id="org9b72aa0"><span class="section-number-2">2.</span> Similar phones</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>With the same system chip:</b>
@@ -333,12 +328,12 @@ But not the same gpu:
 </div>
 </div>
 
-<div id="outline-container-orgbd462de" class="outline-2">
-<h2 id="orgbd462de"><span class="section-number-2">3.</span> ROM/OS Versions</h2>
+<div id="outline-container-org0b3df1b" class="outline-2">
+<h2 id="org0b3df1b"><span class="section-number-2">3.</span> ROM/OS Versions</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgd01ea0d" class="outline-3">
-<h3 id="orgd01ea0d"><span class="section-number-3">3.1.</span> GSI</h3>
+<div id="outline-container-orge4b80a9" class="outline-3">
+<h3 id="orge4b80a9"><span class="section-number-3">3.1.</span> GSI</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Devices upgraded to Android 9 from an earlier version might or might not support GSIs.
@@ -350,8 +345,8 @@ Check support, downloads, how to install:
 </p>
 </div>
 
-<div id="outline-container-org9a49826" class="outline-4">
-<h4 id="org9a49826"><span class="section-number-4">3.1.1.</span> Check</h4>
+<div id="outline-container-orga30bc65" class="outline-4">
+<h4 id="orga30bc65"><span class="section-number-4">3.1.1.</span> Check</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 Treble fully supported!
@@ -380,43 +375,38 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 </div>
 </div>
 
-<div id="outline-container-orga2ab6a5" class="outline-2">
-<h2 id="orga2ab6a5"><span class="section-number-2">4.</span> Workplan</h2>
+<div id="outline-container-org5fae270" class="outline-2">
+<h2 id="org5fae270"><span class="section-number-2">4.</span> Workplan</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org680a8f0" class="outline-3">
-<h3 id="org680a8f0"><span class="section-number-3">4.1.</span> <span class="done TESTED">TESTED</span> Check treble compatibility</h3>
-</div>
-<div id="outline-container-org014cf79" class="outline-3">
-<h3 id="org014cf79"><span class="section-number-3">4.2.</span> <span class="todo WIP">WIP</span> Unlock Bootloader on device</h3>
-<div class="outline-text-3" id="text-4-2">
+<ol class="org-ol">
+<li><a id="orgcd05549"></a><span class="done DONE">DONE</span> Check treble compatibility<br /></li>
+<li><a id="orgd89e106"></a><span class="todo WONT_DO">WONT_DO</span> Unlock Bootloader on device<br />
+<div class="outline-text-5" id="text-4-0-0-2">
 <ul class="org-ul">
-<li>there is no reason to continue if the brute force method isn't working</li>
+<li>there is no reason to continue if the brute force method isn't working
+<b>NOT WORKING</b> :(</li>
 </ul>
 </div>
-</div>
+</li>
 
-<div id="outline-container-org4899ea9" class="outline-3">
-<h3 id="org4899ea9"><span class="section-number-3">4.3.</span> Get stock firmware for recovery</h3>
-</div>
-<div id="outline-container-org6c1412f" class="outline-3">
-<h3 id="org6c1412f"><span class="section-number-3">4.4.</span> Find, develop a good working TWRP</h3>
-</div>
-<div id="outline-container-org26feb7f" class="outline-3">
-<h3 id="org26feb7f"><span class="section-number-3">4.5.</span> Check old AOSP?, LineageOS? versions for support</h3>
-<div class="outline-text-3" id="text-4-5">
+<li><a id="orgf7a8d60"></a>Get stock firmware for recovery<br /></li>
+<li><a id="org3ff4717"></a>Find, develop a good working TWRP (or other recovery)<br /></li>
+<li><a id="orgc6f6c31"></a>Check old AOSP?, LineageOS? versions for support<br />
+<div class="outline-text-5" id="text-4-0-0-5">
 <ul class="org-ul">
 <li>OpenKirin was closed source :(</li>
 <li>seeing some old (LineageOS based) repos on github</li>
 <li>fresh kernel announcement on XDA</li>
 </ul>
 </div>
-</div>
+</li>
+</ol>
 </div>
 
 
-<div id="outline-container-org18af19c" class="outline-2">
-<h2 id="org18af19c"><span class="section-number-2">5.</span> Links</h2>
+<div id="outline-container-org38b5791" class="outline-2">
+<h2 id="org38b5791"><span class="section-number-2">5.</span> Links</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>keywords: Huawei, hisilicon, kirin 960, victoria, hi3660, vtr</li>
@@ -427,22 +417,27 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 
 <li><a href="https://source.android.com/docs/setup/build/building-kernels">https://source.android.com/docs/setup/build/building-kernels</a></li>
 
-<li><a href="https://github.com/Coconutat/android_kernel_huawei_vtr_emui9_KernelSU">https://github.com/Coconutat/android_kernel_huawei_vtr_emui9_KernelSU</a></li>
-
-<li><a href="https://github.com/THMonster?tab=repositories&amp;q=hua&amp;type=&amp;language=&amp;sort">https://github.com/THMonster?tab=repositories&amp;q=hua&amp;type=&amp;language=&amp;sort</a>=</li>
-<li><a href="https://github.com/THMonster?tab=repositories&amp;q=hua&amp;type=&amp;language=&amp;sort">https://github.com/THMonster?tab=repositories&amp;q=hua&amp;type=&amp;language=&amp;sort</a>=</li>
-
 <li><a href="https://xdaforums.com/t/rom-discontinued-unofficial-lineageos-16-0-mate-9-2018-11-11.3835072/">https://xdaforums.com/t/rom-discontinued-unofficial-lineageos-16-0-mate-9-2018-11-11.3835072/</a></li>
 </ul>
 </div>
 
-<div id="outline-container-orgd5bf60e" class="outline-3">
-<h3 id="orgd5bf60e"><span class="section-number-3">5.1.</span> Telegram</h3>
+<div id="outline-container-org5518f08" class="outline-3">
+<h3 id="org5518f08"><span class="section-number-3">5.1.</span> Telegram</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
-<div id="outline-container-orgdb95903" class="outline-4">
-<h4 id="orgdb95903"><span class="section-number-4">5.1.1.</span> OpenKirin project telegram chanels</h4>
+<div id="outline-container-org7263793" class="outline-4">
+<h4 id="org7263793"><span class="section-number-4">5.1.1.</span> TWRP</h4>
 <div class="outline-text-4" id="text-5-1-1">
+<ul class="org-ul">
+<li><a href="https://t.me/build_twrp">https://t.me/build_twrp</a> - essential information about recovery and building in the /notes</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgfc99611" class="outline-4">
+<h4 id="orgfc99611"><span class="section-number-4">5.1.2.</span> OpenKirin project telegram chanels</h4>
+<div class="outline-text-4" id="text-5-1-2">
 <ul class="org-ul">
 <li><a href="https://t.me/OpenKirin">https://t.me/OpenKirin</a></li>
 <li><a href="https://t.me/OpenKirinSupport">https://t.me/OpenKirinSupport</a></li>
@@ -451,8 +446,8 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 </div>
 </div>
 
-<div id="outline-container-orgccdad4d" class="outline-3">
-<h3 id="orgccdad4d"><span class="section-number-3">5.2.</span> Unlock</h3>
+<div id="outline-container-orgf611ea4" class="outline-3">
+<h3 id="orgf611ea4"><span class="section-number-3">5.2.</span> Unlock</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li><a href="https://xdaforums.com/t/huawei-nova-2-plus-bootloader-unlock-solution.4386383/#post-86234203">https://xdaforums.com/t/huawei-nova-2-plus-bootloader-unlock-solution.4386383/#post-86234203</a></li>
@@ -464,17 +459,21 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 </div>
 </div>
 
-<div id="outline-container-orgadf0f16" class="outline-3">
-<h3 id="orgadf0f16"><span class="section-number-3">5.3.</span> Firmware</h3>
+<div id="outline-container-org0ba1485" class="outline-3">
+<h3 id="org0ba1485"><span class="section-number-3">5.3.</span> Firmware</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
+<li><a href="https://professorjtj.github.io/">https://professorjtj.github.io/</a>
+<ul class="org-ul">
+<li>Telegram: firmfinder</li>
+</ul></li>
 <li><a href="http://huawei-firmware.com/phone-list/huawei-p10/vtr-l29">http://huawei-firmware.com/phone-list/huawei-p10/vtr-l29</a> - nothing is downloadable? :(</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4e2dacd" class="outline-3">
-<h3 id="org4e2dacd"><span class="section-number-3">5.4.</span> Hardware</h3>
+<div id="outline-container-orgee9e698" class="outline-3">
+<h3 id="orgee9e698"><span class="section-number-3">5.4.</span> Hardware</h3>
 <div class="outline-text-3" id="text-5-4">
 <ul class="org-ul">
 <li><a href="https://en.wikipedia.org/wiki/ARM_Cortex-A73">https://en.wikipedia.org/wiki/ARM_Cortex-A73</a></li>
@@ -492,22 +491,48 @@ allowing for the availability of multiple Linux distributions for this board in 
 </div>
 </div>
 
-<div id="outline-container-orgcaac7a5" class="outline-3">
-<h3 id="orgcaac7a5"><span class="section-number-3">5.5.</span> Apps, software</h3>
+<div id="outline-container-orgb4bc307" class="outline-3">
+<h3 id="orgb4bc307"><span class="section-number-3">5.5.</span> Apps, software</h3>
 <div class="outline-text-3" id="text-5-5">
 <ul class="org-ul">
-<li>old: <a href="https://xdaforums.com/t/guide-complete-android-rom-development-and-essential-tutorials-by-nero-young.1661770/">https://xdaforums.com/t/guide-complete-android-rom-development-and-essential-tutorials-by-nero-young.1661770/</a></li>
+<li>Android building and custom roms: <a href="https://www.youtube.com/watch?v=yNVe3mjCI1k">https://www.youtube.com/watch?v=yNVe3mjCI1k</a></li>
+<li>using shims:  <a href="https://www.xda-developers.com/cameras-custom-roms-developers-make-hardware-work-without-source-code/">https://www.xda-developers.com/cameras-custom-roms-developers-make-hardware-work-without-source-code/</a></li>
+
+<li>Best infos so far: <a href="https://github.com/phhusson/treble_experimentations/wiki/Huawei-P10-and-P10-Plus">https://github.com/phhusson/treble_experimentations/wiki/Huawei-P10-and-P10-Plus</a></li>
 </ul>
 </div>
 
-<div id="outline-container-org2e87ce8" class="outline-4">
-<h4 id="org2e87ce8"><span class="section-number-4">5.5.1.</span> TWRP</h4>
+<div id="outline-container-orge9ec1b0" class="outline-4">
+<h4 id="orge9ec1b0"><span class="section-number-4">5.5.1.</span> Interesting github repos</h4>
 <div class="outline-text-4" id="text-5-5-1">
 <ul class="org-ul">
+<li><a href="https://github.com/josip-k/android_device_huawei_vtr">https://github.com/josip-k/android_device_huawei_vtr</a></li>
+<li><a href="https://github.com/Coconutat/android_kernel_huawei_vtr_emui9_KernelSU">https://github.com/Coconutat/android_kernel_huawei_vtr_emui9_KernelSU</a>
+<ul class="org-ul">
+<li><a href="https://github.com/Coconutat/Huawei-GSI-And-Modify-Or-Support-KernelSU-Tutorial">https://github.com/Coconutat/Huawei-GSI-And-Modify-Or-Support-KernelSU-Tutorial</a></li>
+<li><a href="https://github.com/maimaiguanfan/android_kernel_huawei_hi3660">https://github.com/maimaiguanfan/android_kernel_huawei_hi3660</a></li>
+</ul></li>
+<li><a href="https://github.com/THMonster?tab=repositories&amp;q=hua&amp;type=&amp;language=&amp;sort">https://github.com/THMonster?tab=repositories&amp;q=hua&amp;type=&amp;language=&amp;sort</a>=</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org8031a57" class="outline-4">
+<h4 id="org8031a57"><span class="section-number-4">5.5.2.</span> Recovery, TWRP</h4>
+<div class="outline-text-4" id="text-5-5-2">
+<ul class="org-ul">
+<li><a href="https://xdaforums.com/t/recovery-stock-recovery-collection.3782163/">https://xdaforums.com/t/recovery-stock-recovery-collection.3782163/</a></li>
+
 <li>TWRP - <a href="https://twrp.me/Devices/">https://twrp.me/Devices/</a>
 <ul class="org-ul">
 <li><b>No compatible device atm!</b></li>
 <li><a href="https://twrp.me/faq/howtocompiletwrp.html">https://twrp.me/faq/howtocompiletwrp.html</a></li>
+<li><a href="https://xdaforums.com/t/recovery-8-0-unofficial-twrp-3-2-1-0-for-emui-8-0-06-05-2018.3773449/">https://xdaforums.com/t/recovery-8-0-unofficial-twrp-3-2-1-0-for-emui-8-0-06-05-2018.3773449/</a>
+<ul class="org-ul">
+<li><a href="https://xdaforums.com/t/recovery-twrp-3-2-1-0-oreo.3734993/">https://xdaforums.com/t/recovery-twrp-3-2-1-0-oreo.3734993/</a></li>
+</ul></li>
+
 <li><a href="https://xdaforums.com/t/guide-noob-friendly-how-to-compile-twrp-from-source-step-by-step.3404024/">https://xdaforums.com/t/guide-noob-friendly-how-to-compile-twrp-from-source-step-by-step.3404024/</a></li>
 <li><a href="https://xdaforums.com/t/dev-how-to-compile-twrp-touch-recovery.1943625/">https://xdaforums.com/t/dev-how-to-compile-twrp-touch-recovery.1943625/</a></li>
 </ul></li>
@@ -521,11 +546,19 @@ allowing for the availability of multiple Linux distributions for this board in 
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org46fdccf" class="outline-4">
+<h4 id="org46fdccf"><span class="section-number-4">5.5.3.</span> Custom rom install</h4>
+<div class="outline-text-4" id="text-5-5-3">
+<ul class="org-ul">
+<li><a href="https://xdaforums.com/t/rom-fromfuture-stock-rom-l29-b179.3657812/">https://xdaforums.com/t/rom-fromfuture-stock-rom-l29-b179.3657812/</a></li>
+</ul>
+</div>
+</div>
 </div>
 
-
-<div id="outline-container-org8d30353" class="outline-3">
-<h3 id="org8d30353"><span class="section-number-3">5.6.</span> Other</h3>
+<div id="outline-container-orgfb422a2" class="outline-3">
+<h3 id="orgfb422a2"><span class="section-number-3">5.6.</span> Other</h3>
 <div class="outline-text-3" id="text-5-6">
 <ul class="org-ul">
 <li>Example project supporting "very old" (Samsung A10/20/30/40) hardware: <a href="https://eurekadevelopment.github.io/">https://eurekadevelopment.github.io/</a></li>
@@ -537,7 +570,7 @@ allowing for the availability of multiple Linux distributions for this board in 
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kalman Kiss &lt;kisskamizeg@gmail.com&gt;</p>
-<p class="date">Created: 2023-10-14 Szo 13:55</p>
+<p class="date">Created: 2023-10-22 V 12:02</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
