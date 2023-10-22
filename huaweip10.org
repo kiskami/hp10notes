@@ -91,13 +91,14 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 
 * Workplan
 
-** TESTED Check treble compatibility
-** WIP Unlock Bootloader on device
+**** DONE Check treble compatibility
+**** WONT_DO Unlock Bootloader on device
    - there is no reason to continue if the brute force method isn't working
+     *NOT WORKING* :(
 
-** Get stock firmware for recovery
-** Find, develop a good working TWRP
-** Check old AOSP?, LineageOS? versions for support
+**** Get stock firmware for recovery
+**** Find, develop a good working TWRP (or other recovery)
+**** Check old AOSP?, LineageOS? versions for support
    - OpenKirin was closed source :(
    - seeing some old (LineageOS based) repos on github
    - fresh kernel announcement on XDA
@@ -113,14 +114,13 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 
 - https://source.android.com/docs/setup/build/building-kernels
 
-- https://github.com/Coconutat/android_kernel_huawei_vtr_emui9_KernelSU
-
-- https://github.com/THMonster?tab=repositories&q=hua&type=&language=&sort=
-- https://github.com/THMonster?tab=repositories&q=hua&type=&language=&sort=
-
 - https://xdaforums.com/t/rom-discontinued-unofficial-lineageos-16-0-mate-9-2018-11-11.3835072/
 
 ** Telegram
+
+*** TWRP
+- https://t.me/build_twrp - essential information about recovery and building in the /notes
+  
 
 *** OpenKirin project telegram chanels
 - https://t.me/OpenKirin
@@ -136,6 +136,8 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 
 ** Firmware
 
+- https://professorjtj.github.io/
+  - Telegram: firmfinder
 - http://huawei-firmware.com/phone-list/huawei-p10/vtr-l29 - nothing is downloadable? :(
 
 ** Hardware
@@ -154,13 +156,30 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 
 ** Apps, software
 
-- old: https://xdaforums.com/t/guide-complete-android-rom-development-and-essential-tutorials-by-nero-young.1661770/
+- Android building and custom roms: https://www.youtube.com/watch?v=yNVe3mjCI1k
+- using shims:  https://www.xda-developers.com/cameras-custom-roms-developers-make-hardware-work-without-source-code/
+  
+- Best infos so far: https://github.com/phhusson/treble_experimentations/wiki/Huawei-P10-and-P10-Plus
 
-*** TWRP
+*** Interesting github repos
+
+- https://github.com/josip-k/android_device_huawei_vtr
+- https://github.com/Coconutat/android_kernel_huawei_vtr_emui9_KernelSU
+  - https://github.com/Coconutat/Huawei-GSI-And-Modify-Or-Support-KernelSU-Tutorial
+  - https://github.com/maimaiguanfan/android_kernel_huawei_hi3660
+- https://github.com/THMonster?tab=repositories&q=hua&type=&language=&sort=
+
+
+*** Recovery, TWRP
+
+- https://xdaforums.com/t/recovery-stock-recovery-collection.3782163/
 
 - TWRP - https://twrp.me/Devices/
   - *No compatible device atm!*
   - https://twrp.me/faq/howtocompiletwrp.html
+  - https://xdaforums.com/t/recovery-8-0-unofficial-twrp-3-2-1-0-for-emui-8-0-06-05-2018.3773449/
+    - https://xdaforums.com/t/recovery-twrp-3-2-1-0-oreo.3734993/
+        
   - https://xdaforums.com/t/guide-noob-friendly-how-to-compile-twrp-from-source-step-by-step.3404024/
   - https://xdaforums.com/t/dev-how-to-compile-twrp-touch-recovery.1943625/
 
@@ -171,6 +190,9 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 - How to install TWRP
   https://huaweiflash.com/how-to-install-twrp-recovery-on-huawei-p10/
 
+*** Custom rom install
+
+- https://xdaforums.com/t/rom-fromfuture-stock-rom-l29-b179.3657812/
 
 ** Other
 
