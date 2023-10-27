@@ -1,3 +1,6 @@
+#+OPTIONS: toc:nil
 * Huawei P10 Notes for custom ROM development
 
-Please see the html or org file for the contents!
+- [[./huaweip10.org][Huawei P10 notes]]
+- [[./huawei-extract-imgs.org][How to download and extract img files from firmware zip]]
+- [[./twrp-for-huaweip10.org][Building TWRP for Huawei P10 EMUI 9.1.0]]

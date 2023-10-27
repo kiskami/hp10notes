@@ -1,9 +1,9 @@
 #+TITLE:Huawei P10 Notes, information for custom ROM dev
 #+AUTHOR: Kalman Kiss <kisskamizeg@gmail.com>
+#+OPTIONS: toc:2
 
 This file contains my notes researching the posibilities to produce a "fresh"
-custom ROM for the Huawei P10 device. The ideal target would be AOSP/LineageOS
-+ GApps (not interested in EMUI). :)
+custom ROM for the Huawei P10 device.
 
 * Huawei P10 Specs
 
@@ -92,18 +92,32 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 * Workplan
 
 **** DONE Check treble compatibility
-**** WONT_DO Unlock Bootloader on device
-   - there is no reason to continue if the brute force method isn't working
-     *NOT WORKING* :(
-
-**** Get stock firmware for recovery
+**** DONE Unlock Bootloader on device
+   - brute force method isn't working on my device, continue with potatonv test point method
+   - PotatoNV worked
+**** DONE Get stock firmware for recovery
+***** DONE get vendor update for actual device software version
+***** DONE extract vendor images from update
+   - extracted img files from vendor update package
 **** Find, develop a good working TWRP (or other recovery)
-**** Check old AOSP?, LineageOS? versions for support
+***** TODO generate device tree
+**** Choose custom rom candidates
+***** TODO Check old AOSP?, LineageOS? versions for support
    - OpenKirin was closed source :(
+     - but found some repos on github :)
    - seeing some old (LineageOS based) repos on github
    - fresh kernel announcement on XDA
+   - LineageOS 16 was Android 9 based
 
-     
+* Random notes
+
+** Using windows
+
+- moving the WSL2 Linux image from the default location (c: drive)
+  - export into tar, shutdown, unregister, import tar on new loc
+- on WSL2 use the ext4 filesystem, not the mounted drives (/mnt/*)
+- Linux file system access from Windwos: \\wsl$
+
 * Links
 
 - keywords: Huawei, hisilicon, kirin 960, victoria, hi3660, vtr
@@ -120,7 +134,8 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 
 *** TWRP
 - https://t.me/build_twrp - essential information about recovery and building in the /notes
-  
+- https://www.youtube.com/playlist?list=PLRJ9-cX1yE1lnwTD8QP_e5Ohj8Ys-0oO7 - how to build TWRP from scratch
+  (a little outdated, but probably easy to adapt)
 
 *** OpenKirin project telegram chanels
 - https://t.me/OpenKirin
@@ -134,11 +149,15 @@ Linux localhost 4.9.148 #1 SMP PREEMPT Wed Jun 23 13:51:51 CST 2021 aarch64
 
 - https://github.com/mashed-potatoes/PotatoNV
 
+** Rooting
+
+- https://topjohnwu.github.io/Magisk/install.html - Magisk install
+
 ** Firmware
 
 - https://professorjtj.github.io/
   - Telegram: firmfinder
-- http://huawei-firmware.com/phone-list/huawei-p10/vtr-l29 - nothing is downloadable? :(
+- https://appuals.com/how-to-extract-and-flash-huawei-stock-firmware/ - extract img files from vendor update
 
 ** Hardware
 

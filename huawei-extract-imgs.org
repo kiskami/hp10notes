@@ -1,0 +1,34 @@
+#+TITLE: Extracting img files from firmware package
+#+AUTHOR: Kalman Kiss <kisskamizeg@gmail.com>
+#+OPTIONS: toc:nil
+
+** How to get the img files from vendor update package without root
+
+*This infos were tested only on EMUI 9.1 so if you want to follow this, you should downgrade/upgrade to Android 9/EMUI 9.1! Most tools will work on other versions, but filenames, contents, etc may vary!*
+
+This is a multi step process:
+1. get/download your models firmware with Huawei Firm Finder or HiSuite Proxy and Hisuite OVE
+   - https://github.com/ProfessorJTJ/HISuite-Proxy/wiki/Complete-Guide
+2. extract the zip file
+3. use a splitter tool to extract img files from =UPDATE.APP= file
+   - perl based: split_updata.pl - https://github.com/marcominetti/split_updata.pl
+4. *Determine the file format* of the img files: =file <imgfile>=
+5. extracting various img files:
+  1. for "unpacking" boot images: download =mkbootimg= tool from android source
+     - if you synced an android rom repo, then most probably you already have it
+     - https://android.googlesource.com/platform/system/tools/mkbootimg/
+     - the tool is the =unpack_bootimg.py= python script
+  2. for converting sparse img files to file system image files, download and build the =simg2img= tool
+     from github
+     - https://github.com/anestisb/android-simg2img
+     - use the simg2img tool to convert the img files to mountable disk files
+     - mount them: =mount cache.img /mnt -o loop=
+  3. If =file= says "=data=" after converting the sparse img to disk img, this can mean two things:
+     1. it doesn't know the filesystem type. You can try to mount the file and let the kernel detect its type, for ex: =mount <img file> <mount point> -o loop=
+        - On my phone this "misterious" filesystem was =erosfs= (read only file system developed by Huawei :) ).
+     2. if you see strings like "avbtool x.y", "AVB" around the 0x1000 position in the file - its an avb file made with =avbtool=
+        - if you synced an android rom repo, then most probably you already have the tool
+	- https://android.googlesource.com/platform/external/avb/
+  4. Some files have a 4k long header (?) and and you see the "=ANDROID!=" magic string after it (at pos 0x1000)
+     - you can use =tail= to trim the header, for ex: =tail -c +4097 -q ERECOVERY_KERNEL.img > ERECOVERY_KERNEL.tail.img=
+     - after triming, you can use the =unpack_bootimg.py= tool

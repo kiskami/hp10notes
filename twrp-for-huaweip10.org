@@ -1,0 +1,8 @@
+#+TITLE: TWRP Recovery for Huawei P10
+#+AUTHOR: Kalman Kiss <kisskamizeg@gmail.com>
+
+- starting point: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni
+
+- repos with the same/similar cpu combo:
+  - https://github.com/Tkkg1994/android_device_hi3660 
+  - https://github.com/wirmpolter?tab=repositories
